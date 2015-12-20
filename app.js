@@ -68,33 +68,3 @@ setInterval(function(){
 	})
 
 }, 30000);
-
-//check ACT account site every minute
-/*
-var j = schedule.scheduleJob('10 * * * * *', function(){
-	console.log("Scheduled");
-	//request html body
-	request(address, function (error, response, body) {
-		if (!error && response.statusCode == 200) 
-		{
-			//check if the login prompt exists
-    		if(body.indexOf("Already have an account?") > -1)
-    		{
-    			if(siteUp != true)
-    			{
-    				notify();
-    			}
-    			siteUp = true;
-    		}
-    		else
-    		{
-    			if(siteUp != true)
-    			{
-    				notify();
-    			}
-    			siteUp = false;
-    		}
-  		}
-	})
-});
-*/
