@@ -2,15 +2,38 @@ var request = require('request');
 var address = "http://www.actstudent.org/account/";
 var siteUp = false;
 
+// Twilio Credentials 
+var accountSid = 'AC875dd9af14da990ead957aeb8f673598'; 
+var authToken = '289c8aa340cb8c86e48b219afa426e02'; 
+
+//require the Twilio module and create a REST client 
+var client = require('twilio')(accountSid, authToken); 
+
 var notify = function()
 {
 	if(siteUp)
 	{
 		console.log("The site is up!");
+
+		client.messages.create({ 
+			to: "2314140348", 
+			from: "+12316741066", 
+			body: "The ACT account site is BACK UP!!! :)"
+		}, function(err, message) { 
+			console.log("Message sent");
+		});
 	}
 	else
 	{
 		console.log("The site is down :(");
+
+		client.messages.create({ 
+			to: "2314140348", 
+			from: "+12316741066", 
+			body: "The ACT account site is DOWN :("
+		}, function(err, message) { 
+			console.log("Message sent");
+		});
 	}
 }
 
